@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Marketing — Magic Jester Match</title>
-  <meta name="description" content="Marketing page for Magic Jester Match: value, roadmap, and transparency about future monetization." />
+  <meta name="description" content="Magic Jester Match marketing page: developer story, value statement, and future monetization plans." />
   <style>
     :root{
       --bg0:#070A12; --bg1:#0A1020;
@@ -13,8 +13,7 @@
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.68);
       --a1:#7C4DFF; --a2:#00E5FF; --a3:#FF4D8D;
-      --radius:18px; --radius2:26px;
-      --max: 1040px;
+      --r2:26px; --max: 1040px;
       --shadow: 0 18px 60px rgba(0,0,0,.55);
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -22,10 +21,11 @@
     *{box-sizing:border-box}
     body{
       margin:0; color:var(--text); font-family:var(--sans);
-      background: radial-gradient(1000px 650px at 18% 12%, rgba(255,77,141,.14), transparent 55%),
-                  radial-gradient(900px 600px at 80% 20%, rgba(124,77,255,.22), transparent 55%),
-                  radial-gradient(900px 700px at 50% 95%, rgba(0,229,255,.14), transparent 60%),
-                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      background:
+        radial-gradient(1000px 650px at 18% 12%, rgba(255,77,141,.14), transparent 55%),
+        radial-gradient(900px 600px at 80% 20%, rgba(124,77,255,.22), transparent 55%),
+        radial-gradient(900px 700px at 50% 95%, rgba(0,229,255,.14), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
     header{
@@ -44,8 +44,7 @@
     .logo{
       width:40px; height:40px; border-radius:14px;
       background: conic-gradient(from 250deg, var(--a3), var(--a1), var(--a2), var(--a3));
-      position:relative;
-      box-shadow: 0 12px 38px rgba(255,77,141,.16);
+      position:relative; box-shadow: 0 12px 38px rgba(255,77,141,.16);
     }
     .logo:after{content:""; position:absolute; inset:2px; border-radius:12px;
       background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.38), transparent 52%), rgba(0,0,0,.22);
@@ -71,14 +70,7 @@
       align-items:stretch;
     }
     @media(max-width:920px){.hero{grid-template-columns:1fr}}
-    .card{
-      background: var(--card);
-      border:1px solid var(--stroke);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
+    .card{background: var(--card); border:1px solid var(--stroke); border-radius: var(--r2); box-shadow: var(--shadow); overflow:hidden}
     .pad{padding:18px}
     .h1{margin:0 0 10px; font-size:30px; letter-spacing:-.5px}
     .sub{margin:0; color:var(--muted); font-size:14px; line-height:1.5}
@@ -87,7 +79,7 @@
     .pill{
       font-size:12px;
       padding:8px 10px;
-      border-radius: 999px;
+      border-radius:999px;
       border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.05);
       color: rgba(255,255,255,.84);
@@ -112,18 +104,13 @@
       background: linear-gradient(180deg, var(--a3), var(--a1));
       box-shadow: 0 10px 20px rgba(255,77,141,.18);
     }
-    .list{margin:10px 0 0 18px; color:rgba(255,255,255,.86)}
-    .list li{margin:6px 0; line-height:1.45; font-size:14px}
-    .roadmap{
-      display:grid;
-      gap:10px;
-      margin-top: 12px;
-    }
+
+    .roadmap{display:grid; gap:10px; margin-top:12px}
     .step{
       border-radius: 18px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(0,0,0,.20);
-      padding: 12px 12px;
+      padding: 12px;
       display:flex; gap:12px; align-items:flex-start;
       cursor:pointer;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
@@ -142,16 +129,17 @@
     }
     .step b{display:block; font-size:13px; margin-bottom:3px}
     .step span{display:block; font-size:12px; color: rgba(255,255,255,.66); line-height:1.35}
-    .meter{
+
+    .glowbar{
       margin-top: 14px;
       border-radius: 18px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(0,0,0,.18);
       padding: 12px;
     }
-    .meterTop{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center}
-    .meterTop .k{font-family: var(--mono); font-size:12px; color: rgba(255,255,255,.62); margin:0}
-    .meterTop .v{font-size:12px; color: rgba(255,255,255,.78); margin:0}
+    .glowTop{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center}
+    .glowTop .k{font-family: var(--mono); font-size:12px; color: rgba(255,255,255,.62); margin:0}
+    .glowTop .v{font-size:12px; color: rgba(255,255,255,.78); margin:0}
     .barLine{
       height: 12px;
       border-radius: 999px;
@@ -162,10 +150,10 @@
     }
     .barFill{
       height:100%;
-      width: 0%;
+      width: 35%;
       border-radius: 999px;
       background: linear-gradient(90deg, rgba(124,77,255,.85), rgba(0,229,255,.75), rgba(255,77,141,.75));
-      transition: width .9s ease;
+      transition: width .6s ease;
     }
     .small{font-size:12px; color: rgba(255,255,255,.60); line-height:1.45; margin-top:10px}
     .kbd{
@@ -204,24 +192,26 @@
         <h1 class="h1">A Beginner Developer, Building Real Value</h1>
         <p class="sub">
           Hello! I’m <b>Orest Daniv</b>, the developer of <b>Magic Jester Match</b>.
-          I’m actively improving this app and I want both users and App Review to see a clear, honest picture:
-          what the app is today, what I’m working on, and how monetization may be introduced later.
+          I’m working on this app with care and steady improvements. This page is here to be open about the current state,
+          the direction, and future monetization plans.
         </p>
 
-        <div class="pillRow" aria-label="Highlights">
-          <div class="pill">No paid features today</div>
-          <div class="pill">No subscriptions today</div>
-          <div class="pill">Roadmap in progress</div>
-          <div class="pill">Transparency first</div>
+        <div class="pillRow">
+          <div class="pill">Free to use</div>
+          <div class="pill">No subscriptions now</div>
+          <div class="pill">No paid features now</div>
+          <div class="pill">Roadmap below</div>
         </div>
 
         <div class="hr"></div>
 
         <p class="sub" style="color:rgba(255,255,255,.86)">
-          <b>Current status:</b> the app is free to use. There are no subscriptions and no in-app purchases at the moment.
+          <b>Today:</b> the app is available without paid features and without subscriptions.  
           <br><br>
-          <b>Future plan:</b> I may introduce optional paid features or subscriptions later to support development and create a sustainable income.
-          If monetization is added, it will be clearly described in the app and in App Store metadata.
+          <b>Later:</b> optional paid features or subscriptions may be introduced to support development and create a sustainable income.
+          If monetization is added, it will be clearly explained inside the app and in App Store information.
+          <br><br>
+          <b>My focus:</b> deliver a smooth matching experience, keep the app clear and user-friendly, and add improvements that feel meaningful.
         </p>
 
         <div class="btnRow">
@@ -230,52 +220,52 @@
           <a class="btn" href="index.html"><span class="dot"></span>Home</a>
         </div>
 
-        <div class="meter" aria-label="Interactive progress meter">
-          <div class="meterTop">
-            <p class="k">DEVELOPMENT MOMENTUM</p>
-            <p class="v">Tap roadmap items or press <span class="kbd">Enter</span> to “advance” progress.</p>
+        <div class="glowbar" aria-label="Interactive accent">
+          <div class="glowTop">
+            <p class="k">ROADMAP HIGHLIGHT</p>
+            <p class="v">Tap items or press <span class="kbd">Enter</span>.</p>
           </div>
           <div class="barLine"><div class="barFill" id="fill"></div></div>
-          <div class="small" id="meterText">Progress is shown for presentation only.</div>
+          <div class="small" id="hint">Small interactions here are just for a lively page feel.</div>
         </div>
       </div>
     </article>
 
     <aside class="card">
       <div class="pad">
-        <h2 style="margin:0 0 10px;font-size:18px;letter-spacing:-.2px">Roadmap (interactive)</h2>
-        <p class="sub">This is a transparent plan. Order may change depending on feedback and time.</p>
+        <h2 style="margin:0 0 10px;font-size:18px;letter-spacing:-.2px">Roadmap</h2>
+        <p class="sub">Planned improvements. Order may change based on feedback.</p>
 
-        <div class="roadmap" id="roadmap" role="list">
-          <div class="step" role="button" tabindex="0" data-add="18">
+        <div class="roadmap" id="roadmap">
+          <div class="step" role="button" tabindex="0" data-width="58">
             <div class="num">01</div>
             <div>
               <b>Gameplay polish</b>
-              <span>Improve responsiveness, animations, and overall feel.</span>
+              <span>Responsiveness, animations, and overall feel.</span>
             </div>
           </div>
 
-          <div class="step" role="button" tabindex="0" data-add="16">
+          <div class="step" role="button" tabindex="0" data-width="64">
             <div class="num">02</div>
             <div>
               <b>More levels & content</b>
-              <span>Expand variety while keeping the experience simple and smooth.</span>
+              <span>More variety while keeping the experience simple.</span>
             </div>
           </div>
 
-          <div class="step" role="button" tabindex="0" data-add="14">
+          <div class="step" role="button" tabindex="0" data-width="70">
             <div class="num">03</div>
             <div>
               <b>Accessibility & clarity</b>
-              <span>Better readability, controls, and user options.</span>
+              <span>Better readability, controls, and options.</span>
             </div>
           </div>
 
-          <div class="step" role="button" tabindex="0" data-add="12">
+          <div class="step" role="button" tabindex="0" data-width="76">
             <div class="num">04</div>
             <div>
               <b>Optional monetization (later)</b>
-              <span>Introduce paid features only if they add value and remain optional.</span>
+              <span>Only if it adds value and remains optional.</span>
             </div>
           </div>
         </div>
@@ -284,7 +274,7 @@
 
         <p class="sub">
           <b>Contact:</b> <span style="font-family:var(--mono)">markevichandrej148@gmail.com</span><br>
-          I welcome feedback to improve the app in meaningful ways.
+          Feedback is welcome and helps shape the next updates.
         </p>
       </div>
     </aside>
@@ -294,31 +284,24 @@
 <script>
   (function(){
     const fill = document.getElementById('fill');
-    const meterText = document.getElementById('meterText');
-    let progress = 28; // starting point for presentation
-    let tapped = 0;
+    const hint = document.getElementById('hint');
 
-    function clamp(n,min,max){return Math.max(min, Math.min(max,n));}
-    function render(){
-      progress = clamp(progress, 0, 100);
-      fill.style.width = progress + "%";
-      meterText.textContent = "Presentation progress: " + progress + "% · interactions: " + tapped;
-    }
-    render();
-
-    function advance(add){
-      tapped++;
-      progress += add;
-      // small decay to keep it playful
-      progress -= Math.floor(Math.random()*4);
-      render();
+    function setWidth(w){
+      fill.style.width = w + "%";
+      const lines = [
+        "Thanks for checking the roadmap.",
+        "Your feedback helps prioritize updates.",
+        "Polish and clarity come first.",
+        "I keep improving the app step by step."
+      ];
+      hint.textContent = lines[Math.floor(Math.random()*lines.length)];
     }
 
     document.querySelectorAll('.step').forEach(el=>{
-      const add = Number(el.getAttribute('data-add') || 10);
-      el.addEventListener('click', ()=>advance(add));
+      const w = Number(el.getAttribute('data-width') || 60);
+      el.addEventListener('click', ()=>setWidth(w));
       el.addEventListener('keydown', (e)=>{
-        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); advance(add); }
+        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setWidth(w); }
       });
     });
   })();
