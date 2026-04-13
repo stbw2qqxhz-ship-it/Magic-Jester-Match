@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — Magic Jester Match</title>
+  <meta name="description" content="Privacy Policy for Magic Jester Match. No data collection, no storage, no sharing." />
+  <style>
+    :root{
+      --bg0:#070A12; --bg1:#0A1020;
+      --card: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --a1:#7C4DFF; --a2:#00E5FF; --a3:#FF4D8D;
+      --radius:18px; --radius2:26px;
+      --max: 900px;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--text); font-family:var(--sans);
+      background: radial-gradient(900px 600px at 20% 10%, rgba(124,77,255,.22), transparent 55%),
+                  radial-gradient(900px 600px at 80% 20%, rgba(0,229,255,.16), transparent 55%),
+                  radial-gradient(900px 700px at 55% 95%, rgba(255,77,141,.12), transparent 60%),
+                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(7,10,18,.78), rgba(7,10,18,.45));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .bar{
+      max-width: 1100px;
+      margin:0 auto;
+      padding: 14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none; color:inherit;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:14px;
+      background: conic-gradient(from 220deg, var(--a1), var(--a2), var(--a3), var(--a1));
+      position:relative;
+      box-shadow: 0 12px 38px rgba(124,77,255,.22);
+    }
+    .logo:after{content:""; position:absolute; inset:2px; border-radius:12px;
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.38), transparent 52%), rgba(0,0,0,.22);
+      mix-blend-mode: screen;
+    }
+    nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    .navlink{
+      text-decoration:none; font-size:13px;
+      color:rgba(255,255,255,.84);
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .navlink:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18)}
+    main{max-width:var(--max); margin:0 auto; padding: 18px 18px 60px}
+    .card{
+      background: var(--card);
+      border:1px solid var(--stroke);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .pad{padding:18px}
+    .h1{margin:0 0 10px; font-size:28px; letter-spacing:-.4px}
+    .sub{margin:0; color:var(--muted); font-size:14px; line-height:1.5}
+    .hr{height:1px; background: rgba(255,255,255,.08); margin:14px 0}
+    .policy p{margin:0 0 12px; line-height:1.55; font-size:14px; color: rgba(255,255,255,.86)}
+    .policy ul{margin:0 0 12px 18px; color: rgba(255,255,255,.86)}
+    .policy li{margin:6px 0; line-height:1.5; font-size:14px}
+    .pillRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .pill{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px dashed rgba(255,255,255,.22);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.78);
+    }
+    .actions{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .btn{
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+      padding:10px 12px;
+      border-radius: 14px;
+      text-decoration:none;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      user-select:none;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.22)}
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(180deg, var(--a2), var(--a1));
+      box-shadow: 0 10px 20px rgba(0,229,255,.20);
+    }
+    .note{
+      margin-top:10px;
+      font-size:12px;
+      color: rgba(255,255,255,.60);
+      line-height:1.45;
+    }
+    .toast{
+      position:fixed; left:50%; bottom:18px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.14);
+      padding:10px 12px;
+      border-radius: 14px;
+      font-size:12px;
+      color: rgba(255,255,255,.86);
+      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+      opacity:0; pointer-events:none;
+      transition: opacity .22s ease, transform .22s ease;
+    }
+    .toast.show{opacity:1; transform: translateX(-50%) translateY(-2px)}
+  </style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="Home">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <div style="font-weight:700;font-size:14px;line-height:1.1">Magic Jester Match</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.66)">Privacy Policy</div>
+      </div>
+    </a>
+    <nav>
+      <a class="navlink" href="marketing.html">Marketing</a>
+      <a class="navlink" href="support.html">Support</a>
+      <a class="navlink" href="privacy.html" aria-current="page">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <div class="pad">
+      <h1 class="h1">Privacy Policy</h1>
+      <p class="sub">
+        This policy explains how <b>Magic Jester Match</b> handles data. We aim for clarity and transparency for users and App Review.
+      </p>
+
+      <div class="pillRow" aria-label="Key facts">
+        <div class="pill">No data collection</div>
+        <div class="pill">No storage</div>
+        <div class="pill">No sharing</div>
+        <div class="pill">No analytics SDKs</div>
+      </div>
+
+      <div class="hr"></div>
+
+      <div class="policy">
+        <p><b>Summary:</b> We do not collect any personal data, we do not store it, and we do not transfer it to third parties.</p>
+
+        <p><b>What data we collect</b></p>
+        <ul>
+          <li>We do not collect personal information (name, email, identifiers, etc.).</li>
+          <li>We do not collect device identifiers (IDFA, IDFV), location, contacts, photos, or microphone data.</li>
+          <li>We do not use third-party analytics or advertising SDKs.</li>
+        </ul>
+
+        <p><b>What data we store</b></p>
+        <ul>
+          <li>We do not store personal data on our servers because we do not run any user data backend.</li>
+          <li>Any game progress, if present, remains on the user’s device only.</li>
+        </ul>
+
+        <p><b>Sharing</b></p>
+        <ul>
+          <li>We do not share or sell user data.</li>
+          <li>We do not transfer data to external partners.</li>
+        </ul>
+
+        <p><b>Contact</b></p>
+        <p>
+          If you have questions about privacy, you can contact the developer:
+          <br><span style="font-family:var(--mono)">markevichandrej148@gmail.com</span>
+        </p>
+
+        <p><b>Effective date</b>: <span id="effective"></span></p>
+      </div>
+
+      <div class="actions">
+        <button class="btn" id="closeWebViewBtn" type="button">
+          <span class="dot"></span>
+          Close this page in the app
+        </button>
+        <a class="btn" href="support.html"><span class="dot"></span>Go to Support</a>
+        <a class="btn" href="index.html"><span class="dot"></span>Back to Home</a>
+      </div>
+
+      <div class="note">
+        If this page is opened inside the app WebView, the button will try multiple native bridges (iOS/Android) to close it.
+        If opened in a normal browser, it will simply show a notice.
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  (function(){
+    const effective = new Date().toLocaleDateString(undefined, {year:'numeric', month:'long', day:'2-digit'});
+    document.getElementById('effective').textContent = effective;
+
+    const toast = document.getElementById('toast');
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(()=>toast.classList.remove('show'), 2600);
+    }
+
+    // Attempts to close WebView via several common bridges.
+    function closeInApp(){
+      let invoked = false;
+
+      // iOS WKWebView message handler
+      try{
+        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.closeWebView) {
+          window.webkit.messageHandlers.closeWebView.postMessage({ action: "closeWebView" });
+          invoked = true;
+        }
+      }catch(e){}
+
+      // Alternative iOS handler name
+      try{
+        if (!invoked && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.dismiss) {
+          window.webkit.messageHandlers.dismiss.postMessage({ action: "dismiss" });
+          invoked = true;
+        }
+      }catch(e){}
+
+      // Android JavaScript interface (example names)
+      try{
+        if (!invoked && window.Android && typeof window.Android.closeWebView === 'function') {
+          window.Android.closeWebView();
+          invoked = true;
+        }
+      }catch(e){}
+
+      try{
+        if (!invoked && window.App && typeof window.App.closeWebView === 'function') {
+          window.App.closeWebView();
+          invoked = true;
+        }
+      }catch(e){}
+
+      // Deep-link fallback (you can handle this scheme in the app if you want)
+      try{
+        if (!invoked) {
+          window.location.href = "magicjestermatch://closeWebView";
+          invoked = true;
+        }
+      }catch(e){}
+
+      if (invoked) {
+        showToast("Close request sent to the app.");
+      } else {
+        showToast("This looks like a browser. The app close action is unavailable here.");
+      }
+    }
+
+    document.getElementById('closeWebViewBtn').addEventListener('click', closeInApp);
+  })();
+</script>
+</body>
+</html>
