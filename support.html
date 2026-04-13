@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Support — Magic Jester Match</title>
+  <meta name="description" content="Support page for Magic Jester Match. Contact, troubleshooting, and report details." />
+  <style>
+    :root{
+      --bg0:#070A12; --bg1:#0A1020;
+      --card: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --a1:#7C4DFF; --a2:#00E5FF; --a3:#FF4D8D;
+      --radius:18px; --radius2:26px;
+      --max: 980px;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--text); font-family:var(--sans);
+      background: radial-gradient(900px 600px at 18% 12%, rgba(0,229,255,.16), transparent 55%),
+                  radial-gradient(900px 600px at 82% 16%, rgba(124,77,255,.20), transparent 55%),
+                  radial-gradient(900px 700px at 50% 95%, rgba(255,77,141,.12), transparent 60%),
+                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(7,10,18,.78), rgba(7,10,18,.45));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .bar{
+      max-width: 1100px;
+      margin:0 auto;
+      padding: 14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;}
+    .logo{
+      width:40px; height:40px; border-radius:14px;
+      background: conic-gradient(from 210deg, var(--a2), var(--a1), var(--a3), var(--a2));
+      position:relative;
+      box-shadow: 0 12px 38px rgba(0,229,255,.18);
+    }
+    .logo:after{content:""; position:absolute; inset:2px; border-radius:12px;
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.38), transparent 52%), rgba(0,0,0,.22);
+      mix-blend-mode: screen;
+    }
+    nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    .navlink{
+      text-decoration:none; font-size:13px;
+      color:rgba(255,255,255,.84);
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .navlink:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18)}
+    main{max-width:var(--max); margin:0 auto; padding: 18px 18px 60px}
+    .card{
+      background: var(--card);
+      border:1px solid var(--stroke);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .pad{padding:18px}
+    .h1{margin:0 0 10px; font-size:28px; letter-spacing:-.4px}
+    .sub{margin:0; color:var(--muted); font-size:14px; line-height:1.5}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    @media(max-width:860px){.grid{grid-template-columns:1fr}}
+    .box{
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.20);
+      padding:14px;
+    }
+    .k{font-family:var(--mono); font-size:12px; color:rgba(255,255,255,.62); margin:0 0 6px}
+    .v{margin:0; font-size:14px; line-height:1.5; color:rgba(255,255,255,.88)}
+    .btnRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .btn{
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+      padding:10px 12px;
+      border-radius: 14px;
+      text-decoration:none;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.22)}
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(180deg, var(--a1), var(--a2));
+      box-shadow: 0 10px 20px rgba(124,77,255,.18);
+    }
+    .list{margin:10px 0 0 18px; color:rgba(255,255,255,.86)}
+    .list li{margin:6px 0; line-height:1.45; font-size:14px}
+    .copy{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius: 14px;
+      padding:10px 12px;
+      display:flex; gap:10px; align-items:center; justify-content:space-between;
+      margin-top:10px;
+    }
+    .copy code{font-family:var(--mono); font-size:12px; color:rgba(255,255,255,.88)}
+    .copy button{
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.25);
+      color: rgba(255,255,255,.86);
+      padding:8px 10px;
+      border-radius: 12px;
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .copy button:hover{transform: translateY(-1px); background: rgba(0,0,0,.32); border-color: rgba(255,255,255,.22)}
+    .toast{
+      position:fixed; left:50%; bottom:18px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.14);
+      padding:10px 12px;
+      border-radius: 14px;
+      font-size:12px;
+      color: rgba(255,255,255,.86);
+      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+      opacity:0; pointer-events:none;
+      transition: opacity .22s ease, transform .22s ease;
+    }
+    .toast.show{opacity:1; transform: translateX(-50%) translateY(-2px)}
+  </style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="Home">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <div style="font-weight:700;font-size:14px;line-height:1.1">Magic Jester Match</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.66)">Support</div>
+      </div>
+    </a>
+    <nav>
+      <a class="navlink" href="marketing.html">Marketing</a>
+      <a class="navlink" href="support.html" aria-current="page">Support</a>
+      <a class="navlink" href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <div class="pad">
+      <h1 class="h1">Support</h1>
+      <p class="sub">
+        If something isn’t working or you have a question about <b>Magic Jester Match</b>,
+        please contact the developer. Clear reports help improve the app faster.
+      </p>
+
+      <div class="grid">
+        <div class="box">
+          <p class="k">CONTACT</p>
+          <p class="v"><b>Developer:</b> Orest Daniv</p>
+          <p class="v"><b>Email:</b> <span style="font-family:var(--mono)">markevichandrej148@gmail.com</span></p>
+
+          <div class="copy" aria-label="Copy email">
+            <code id="emailText">markevichandrej148@gmail.com</code>
+            <button type="button" id="copyBtn">Copy</button>
+          </div>
+
+          <div class="btnRow">
+            <a class="btn" href="mailto:markevichandrej148@gmail.com?subject=Magic%20Jester%20Match%20Support&body=Please%20describe%20your%20issue%20here.%0A%0ADevice%3A%0AiOS%20version%3A%0AApp%20version%3A%0ASteps%20to%20reproduce%3A%0A"><span class="dot"></span>Email Support</a>
+            <a class="btn" href="privacy.html"><span class="dot"></span>Privacy Policy</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <p class="k">WHAT TO INCLUDE IN YOUR MESSAGE</p>
+          <ul class="list">
+            <li>Your device model and iOS version</li>
+            <li>App version (if visible)</li>
+            <li>What you expected vs what happened</li>
+            <li>Steps to reproduce the issue</li>
+            <li>Screenshots or screen recording (optional)</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <p class="k">TROUBLESHOOTING</p>
+          <ul class="list">
+            <li>Restart the app and try again</li>
+            <li>Update iOS to the latest available version</li>
+            <li>Reinstall the app if the issue persists</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <p class="k">LINKS</p>
+          <p class="v">
+            This support page is linked to App Store Connect as the <b>Support URL</b>.
+            For the developer story and roadmap, visit the Marketing page.
+          </p>
+          <div class="btnRow">
+            <a class="btn" href="marketing.html"><span class="dot"></span>Marketing</a>
+            <a class="btn" href="index.html"><span class="dot"></span>Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  (function(){
+    const toast = document.getElementById('toast');
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(()=>toast.classList.remove('show'), 2200);
+    }
+
+    const btn = document.getElementById('copyBtn');
+    btn.addEventListener('click', async ()=>{
+      const email = document.getElementById('emailText').textContent.trim();
+      try{
+        await navigator.clipboard.writeText(email);
+        showToast("Email copied.");
+      }catch(e){
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = email;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        showToast("Email copied.");
+      }
+    });
+  })();
+</script>
+</body>
+</html>
