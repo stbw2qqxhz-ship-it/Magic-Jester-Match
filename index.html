@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magic Jester Match — Developer Info</title>
+  <meta name="description" content="Magic Jester Match — official developer & app information page for transparency." />
+  <style>
+    :root{
+      --bg0:#070A12;
+      --bg1:#0A1020;
+      --card: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --accent1:#7C4DFF;
+      --accent2:#00E5FF;
+      --accent3:#FF4D8D;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background: radial-gradient(1200px 700px at 15% 10%, rgba(124,77,255,.25), transparent 55%),
+                  radial-gradient(900px 600px at 80% 15%, rgba(0,229,255,.18), transparent 55%),
+                  radial-gradient(1000px 800px at 55% 95%, rgba(255,77,141,.14), transparent 60%),
+                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+    .noise{
+      pointer-events:none;
+      position:fixed; inset:0;
+      opacity:.08;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
+    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 70px}
+    header{
+      position:sticky; top:0; z-index:40;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(7,10,18,.78), rgba(7,10,18,.45));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbar{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width: 220px;
+      text-decoration:none; color:inherit;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:14px;
+      background: conic-gradient(from 220deg, var(--accent1), var(--accent2), var(--accent3), var(--accent1));
+      box-shadow: 0 12px 38px rgba(124,77,255,.22);
+      position:relative;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:2px;
+      border-radius:12px;
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.38), transparent 52%),
+                  rgba(0,0,0,.22);
+      mix-blend-mode: screen;
+    }
+    .titleblock{line-height:1.05}
+    .titleblock b{display:block; font-size:14px; letter-spacing:.2px}
+    .titleblock span{display:block; font-size:12px; color:var(--muted)}
+    nav{
+      display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .navlink{
+      text-decoration:none;
+      font-size:13px;
+      color:rgba(255,255,255,.84);
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .navlink:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18)}
+    .hero{
+      padding:22px 0 10px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .brand{min-width:auto}
+    }
+    .card{
+      background: var(--card);
+      border:1px solid var(--stroke);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .card .pad{padding:18px}
+    .shine{
+      position:absolute; inset:-120px -180px auto auto;
+      width:420px; height:420px;
+      background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.22), transparent 58%);
+      transform: rotate(20deg);
+      pointer-events:none;
+      opacity:.75;
+    }
+    .h1{
+      font-size: 34px;
+      letter-spacing: -.6px;
+      margin: 0 0 10px;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      line-height:1.45;
+      font-size: 14px;
+      max-width: 66ch;
+    }
+    .badges{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
+    .badge{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.84);
+    }
+    .grid{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+    .col6{grid-column: span 6}
+    .col7{grid-column: span 7}
+    .col5{grid-column: span 5}
+    .col12{grid-column: span 12}
+    @media (max-width: 900px){
+      .col6,.col7,.col5{grid-column: span 12}
+    }
+    .k{
+      font-family:var(--mono);
+      font-size:12px;
+      color: rgba(255,255,255,.62);
+      margin:0 0 6px;
+    }
+    .v{
+      margin:0;
+      font-size:14px;
+      line-height:1.45;
+      color: rgba(255,255,255,.90);
+      word-break: break-word;
+    }
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+      padding:10px 12px;
+      border-radius: 14px;
+      text-decoration:none;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.22)}
+    .btn .dot{
+      width:10px; height:10px; border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent2), var(--accent1));
+      box-shadow: 0 10px 20px rgba(0,229,255,.20);
+    }
+    .mini{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:14px 16px;
+      border-top:1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    }
+    .mini p{margin:0; font-size:12px; color: rgba(255,255,255,.66); line-height:1.35}
+    .spark{
+      font-family: var(--mono);
+      font-size: 11px;
+      padding:7px 10px;
+      border-radius: 999px;
+      border:1px dashed rgba(255,255,255,.22);
+      color: rgba(255,255,255,.78);
+      background: rgba(0,0,0,.18);
+      white-space:nowrap;
+    }
+    footer{
+      margin-top:18px;
+      color: rgba(255,255,255,.52);
+      font-size:12px;
+      text-align:center;
+      padding: 18px 8px 0;
+    }
+    /* interactive floating jester cards */
+    .floatStage{
+      position:relative;
+      height: 100%;
+      min-height: 290px;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+    }
+    .orb{
+      position:absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 25%, rgba(124,77,255,.22), transparent 55%),
+                  radial-gradient(circle at 60% 60%, rgba(0,229,255,.18), transparent 55%),
+                  radial-gradient(circle at 40% 70%, rgba(255,77,141,.14), transparent 60%);
+      filter: blur(1px);
+      animation: drift 14s ease-in-out infinite;
+      opacity: .85;
+    }
+    @keyframes drift{
+      0%{transform: translate(-6%, -2%) scale(1)}
+      50%{transform: translate(6%, 4%) scale(1.03)}
+      100%{transform: translate(-6%, -2%) scale(1)}
+    }
+    .stack{
+      position:relative;
+      display:grid;
+      gap:10px;
+      width:min(420px, 100%);
+      padding: 6px;
+    }
+    .tile{
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.22);
+      padding: 14px 14px;
+      display:flex; gap:12px; align-items:flex-start;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      transform: translateZ(0);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      cursor: pointer;
+      user-select:none;
+    }
+    .tile:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.22);
+      background: rgba(0,0,0,.26);
+    }
+    .ic{
+      width:38px; height:38px; border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12);
+      display:grid; place-items:center;
+      font-family: var(--mono);
+      color: rgba(255,255,255,.9);
+    }
+    .tile b{display:block; font-size:13px; margin-bottom:3px}
+    .tile span{display:block; font-size:12px; color: rgba(255,255,255,.64); line-height:1.35}
+    .tip{
+      margin-top:10px;
+      font-size:12px;
+      color: rgba(255,255,255,.62);
+      text-align:center;
+    }
+    .kbd{
+      font-family: var(--mono);
+      font-size: 11px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      padding: 3px 7px;
+      border-radius: 9px;
+      color: rgba(255,255,255,.80);
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header>
+    <div class="topbar">
+      <a class="brand" href="index.html" aria-label="Home">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="titleblock">
+          <b>Magic Jester Match</b>
+          <span>Developer Transparency Pages</span>
+        </div>
+      </a>
+      <nav>
+        <a class="navlink" href="marketing.html">Marketing</a>
+        <a class="navlink" href="support.html">Support</a>
+        <a class="navlink" href="privacy.html">Privacy Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <article class="card">
+        <div class="shine" aria-hidden="true"></div>
+        <div class="pad">
+          <h1 class="h1">Clear & Open Developer Profile</h1>
+          <p class="sub">
+            This GitHub Pages site exists to provide moderators and users with transparent,
+            easy-to-verify information about the developer and the app <b>Magic Jester Match</b>.
+            You can use these links in App Store Connect for Marketing URL, Support URL, and Privacy Policy.
+          </p>
+
+          <div class="badges" aria-label="Highlights">
+            <div class="badge">App: Magic Jester Match</div>
+            <div class="badge">Developer: Orest Daniv</div>
+            <div class="badge">Contact: markevichandrej148@gmail.com</div>
+          </div>
+
+          <div class="grid" role="list">
+            <div class="card col7">
+              <div class="pad">
+                <p class="k">ABOUT THE APP</p>
+                <p class="v">
+                  Magic Jester Match is a casual matching experience with a playful “jester” theme.
+                  The focus is on clarity, smooth gameplay, and steady improvements over time.
+                </p>
+              </div>
+              <div class="mini">
+                <p>Quick links for review and user trust.</p>
+                <span class="spark" id="buildStamp">build: —</span>
+              </div>
+            </div>
+
+            <div class="card col5">
+              <div class="pad">
+                <p class="k">DEVELOPER INFO</p>
+                <p class="v"><b>Name:</b> Orest Daniv</p>
+                <p class="v"><b>iCloud / Apple ID email:</b> markevichandrej148@gmail.com</p>
+                <p class="v"><b>Primary support email:</b> markevichandrej148@gmail.com</p>
+              </div>
+              <div class="mini">
+                <p>Last updated automatically in your browser.</p>
+                <span class="spark" id="dateStamp">updated: —</span>
+              </div>
+            </div>
+
+            <div class="card col12">
+              <div class="pad">
+                <p class="k">WHERE TO GO NEXT</p>
+                <p class="v">
+                  For monetization and value statement, open the Marketing page.  
+                  For contact and troubleshooting steps, open the Support page.  
+                  For data handling and privacy, open the Privacy Policy page.
+                </p>
+                <div class="ctaRow">
+                  <a class="btn" href="marketing.html"><span class="dot"></span>Marketing URL page</a>
+                  <a class="btn" href="support.html"><span class="dot"></span>Support URL page</a>
+                  <a class="btn" href="privacy.html"><span class="dot"></span>Privacy Policy page</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="card">
+        <div class="pad floatStage" aria-label="Interactive overview">
+          <div class="orb" aria-hidden="true"></div>
+          <div class="stack" id="stack">
+            <div class="tile" data-go="marketing.html" role="button" tabindex="0" aria-label="Open Marketing page">
+              <div class="ic">MK</div>
+              <div>
+                <b>Marketing</b>
+                <span>My developer story, roadmap, and future monetization plans.</span>
+              </div>
+            </div>
+            <div class="tile" data-go="support.html" role="button" tabindex="0" aria-label="Open Support page">
+              <div class="ic">SP</div>
+              <div>
+                <b>Support</b>
+                <span>Contact email, help steps, and what to include in a report.</span>
+              </div>
+            </div>
+            <div class="tile" data-go="privacy.html" role="button" tabindex="0" aria-label="Open Privacy Policy page">
+              <div class="ic">PP</div>
+              <div>
+                <b>Privacy Policy</b>
+                <span>We do not collect, store, or share personal data.</span>
+              </div>
+            </div>
+          </div>
+          <div class="tip">Tip: tap a card or press <span class="kbd">Enter</span>.</div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Orest Daniv · Magic Jester Match · GitHub Pages transparency site
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      document.getElementById('year').textContent = yyyy;
+
+      const dateStamp = now.toLocaleString(undefined, {
+        year: 'numeric', month: 'short', day: '2-digit',
+        hour: '2-digit', minute: '2-digit'
+      });
+      document.getElementById('dateStamp').textContent = "updated: " + dateStamp;
+
+      // pseudo build stamp (deterministic-ish per day)
+      const seed = yyyy*10000 + (now.getMonth()+1)*100 + now.getDate();
+      const build = "v" + (Math.floor(seed/1000)%100) + "." + (seed%1000);
+      document.getElementById('buildStamp').textContent = "build: " + build;
+
+      // interactive tiles
+      function go(el){
+        const target = el.getAttribute('data-go');
+        if(target) window.location.href = target;
+      }
+      document.querySelectorAll('.tile').forEach(el=>{
+        el.addEventListener('click', ()=>go(el));
+        el.addEventListener('keydown', (e)=>{
+          if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(el); }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
