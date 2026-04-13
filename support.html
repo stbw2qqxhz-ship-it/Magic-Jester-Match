@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Support — Magic Jester Match</title>
-  <meta name="description" content="Support page for Magic Jester Match. Contact, troubleshooting, and report details." />
+  <title>Privacy Policy — Magic Jester Match</title>
+  <meta name="description" content="Privacy Policy for Magic Jester Match. No data collection, no storage, no sharing." />
   <style>
     :root{
       --bg0:#070A12; --bg1:#0A1020;
@@ -13,8 +13,7 @@
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.68);
       --a1:#7C4DFF; --a2:#00E5FF; --a3:#FF4D8D;
-      --radius:18px; --radius2:26px;
-      --max: 980px;
+      --r2:26px; --max: 900px;
       --shadow: 0 18px 60px rgba(0,0,0,.55);
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -22,10 +21,11 @@
     *{box-sizing:border-box}
     body{
       margin:0; color:var(--text); font-family:var(--sans);
-      background: radial-gradient(900px 600px at 18% 12%, rgba(0,229,255,.16), transparent 55%),
-                  radial-gradient(900px 600px at 82% 16%, rgba(124,77,255,.20), transparent 55%),
-                  radial-gradient(900px 700px at 50% 95%, rgba(255,77,141,.12), transparent 60%),
-                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      background:
+        radial-gradient(900px 600px at 20% 10%, rgba(124,77,255,.22), transparent 55%),
+        radial-gradient(900px 600px at 80% 20%, rgba(0,229,255,.16), transparent 55%),
+        radial-gradient(900px 700px at 55% 95%, rgba(255,77,141,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
     header{
@@ -43,9 +43,8 @@
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;}
     .logo{
       width:40px; height:40px; border-radius:14px;
-      background: conic-gradient(from 210deg, var(--a2), var(--a1), var(--a3), var(--a2));
-      position:relative;
-      box-shadow: 0 12px 38px rgba(0,229,255,.18);
+      background: conic-gradient(from 220deg, var(--a1), var(--a2), var(--a3), var(--a1));
+      position:relative; box-shadow: 0 12px 38px rgba(124,77,255,.22);
     }
     .logo:after{content:""; position:absolute; inset:2px; border-radius:12px;
       background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.38), transparent 52%), rgba(0,0,0,.22);
@@ -63,32 +62,26 @@
     }
     .navlink:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18)}
     main{max-width:var(--max); margin:0 auto; padding: 18px 18px 60px}
-    .card{
-      background: var(--card);
-      border:1px solid var(--stroke);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
+    .card{background: var(--card); border:1px solid var(--stroke); border-radius: var(--r2); box-shadow: var(--shadow); overflow:hidden}
     .pad{padding:18px}
     .h1{margin:0 0 10px; font-size:28px; letter-spacing:-.4px}
     .sub{margin:0; color:var(--muted); font-size:14px; line-height:1.5}
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top:14px;
+    .hr{height:1px; background: rgba(255,255,255,.08); margin:14px 0}
+    .policy p{margin:0 0 12px; line-height:1.55; font-size:14px; color: rgba(255,255,255,.86)}
+    .policy ul{margin:0 0 12px 18px; color: rgba(255,255,255,.86)}
+    .policy li{margin:6px 0; line-height:1.5; font-size:14px}
+
+    .pillRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .pill{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px dashed rgba(255,255,255,.22);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.78);
     }
-    @media(max-width:860px){.grid{grid-template-columns:1fr}}
-    .box{
-      border-radius: 18px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.20);
-      padding:14px;
-    }
-    .k{font-family:var(--mono); font-size:12px; color:rgba(255,255,255,.62); margin:0 0 6px}
-    .v{margin:0; font-size:14px; line-height:1.5; color:rgba(255,255,255,.88)}
-    .btnRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px}
     .btn{
       border:1px solid rgba(255,255,255,.16);
       background: rgba(255,255,255,.06);
@@ -101,34 +94,14 @@
       align-items:center;
       transition: transform .15s ease, border-color .15s ease, background .15s ease;
       user-select:none;
+      cursor:pointer;
     }
     .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.22)}
     .dot{
       width:10px; height:10px; border-radius:999px;
-      background: linear-gradient(180deg, var(--a1), var(--a2));
-      box-shadow: 0 10px 20px rgba(124,77,255,.18);
+      background: linear-gradient(180deg, var(--a2), var(--a1));
+      box-shadow: 0 10px 20px rgba(0,229,255,.20);
     }
-    .list{margin:10px 0 0 18px; color:rgba(255,255,255,.86)}
-    .list li{margin:6px 0; line-height:1.45; font-size:14px}
-    .copy{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      border-radius: 14px;
-      padding:10px 12px;
-      display:flex; gap:10px; align-items:center; justify-content:space-between;
-      margin-top:10px;
-    }
-    .copy code{font-family:var(--mono); font-size:12px; color:rgba(255,255,255,.88)}
-    .copy button{
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.25);
-      color: rgba(255,255,255,.86);
-      padding:8px 10px;
-      border-radius: 12px;
-      cursor:pointer;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-    .copy button:hover{transform: translateY(-1px); background: rgba(0,0,0,.32); border-color: rgba(255,255,255,.22)}
     .toast{
       position:fixed; left:50%; bottom:18px;
       transform: translateX(-50%);
@@ -152,13 +125,13 @@
       <div class="logo" aria-hidden="true"></div>
       <div>
         <div style="font-weight:700;font-size:14px;line-height:1.1">Magic Jester Match</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.66)">Support</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.66)">Privacy Policy</div>
       </div>
     </a>
     <nav>
       <a class="navlink" href="marketing.html">Marketing</a>
-      <a class="navlink" href="support.html" aria-current="page">Support</a>
-      <a class="navlink" href="privacy.html">Privacy</a>
+      <a class="navlink" href="support.html">Support</a>
+      <a class="navlink" href="privacy.html" aria-current="page">Privacy</a>
     </nav>
   </div>
 </header>
@@ -166,60 +139,52 @@
 <main>
   <section class="card">
     <div class="pad">
-      <h1 class="h1">Support</h1>
+      <h1 class="h1">Privacy Policy</h1>
       <p class="sub">
-        If something isn’t working or you have a question about <b>Magic Jester Match</b>,
-        please contact the developer. Clear reports help improve the app faster.
+        We keep privacy simple and strict: <b>Magic Jester Match</b> does not collect, store, or share personal data.
       </p>
 
-      <div class="grid">
-        <div class="box">
-          <p class="k">CONTACT</p>
-          <p class="v"><b>Developer:</b> Orest Daniv</p>
-          <p class="v"><b>Email:</b> <span style="font-family:var(--mono)">markevichandrej148@gmail.com</span></p>
+      <div class="pillRow">
+        <div class="pill">No collection</div>
+        <div class="pill">No storage</div>
+        <div class="pill">No sharing</div>
+        <div class="pill">No ads / trackers</div>
+      </div>
 
-          <div class="copy" aria-label="Copy email">
-            <code id="emailText">markevichandrej148@gmail.com</code>
-            <button type="button" id="copyBtn">Copy</button>
-          </div>
+      <div class="hr"></div>
 
-          <div class="btnRow">
-            <a class="btn" href="mailto:markevichandrej148@gmail.com?subject=Magic%20Jester%20Match%20Support&body=Please%20describe%20your%20issue%20here.%0A%0ADevice%3A%0AiOS%20version%3A%0AApp%20version%3A%0ASteps%20to%20reproduce%3A%0A"><span class="dot"></span>Email Support</a>
-            <a class="btn" href="privacy.html"><span class="dot"></span>Privacy Policy</a>
-          </div>
-        </div>
+      <div class="policy">
+        <p><b>1) Data collection</b></p>
+        <ul>
+          <li>We do not collect personal information (name, email, identifiers, location, contacts, photos, microphone).</li>
+          <li>We do not use advertising SDKs or third-party analytics SDKs.</li>
+        </ul>
 
-        <div class="box">
-          <p class="k">WHAT TO INCLUDE IN YOUR MESSAGE</p>
-          <ul class="list">
-            <li>Your device model and iOS version</li>
-            <li>App version (if visible)</li>
-            <li>What you expected vs what happened</li>
-            <li>Steps to reproduce the issue</li>
-            <li>Screenshots or screen recording (optional)</li>
-          </ul>
-        </div>
+        <p><b>2) Data storage</b></p>
+        <ul>
+          <li>We do not operate a user data backend and do not store personal data on servers.</li>
+          <li>If the app stores anything locally (for example, game progress), it stays on the user’s device.</li>
+        </ul>
 
-        <div class="box">
-          <p class="k">TROUBLESHOOTING</p>
-          <ul class="list">
-            <li>Restart the app and try again</li>
-            <li>Update iOS to the latest available version</li>
-            <li>Reinstall the app if the issue persists</li>
-          </ul>
-        </div>
+        <p><b>3) Data sharing</b></p>
+        <ul>
+          <li>We do not sell or share user data with third parties.</li>
+        </ul>
 
-        <div class="box">
-          <p class="k">LINKS</p>
-          <p class="v">
-            This support page is linked to App Store Connect as the <b>Support URL</b>.
-            For the developer story and roadmap, visit the Marketing page.
-          </p>
-          <div class="btnRow">
-            <a class="btn" href="marketing.html"><span class="dot"></span>Marketing</a>
-            <a class="btn" href="index.html"><span class="dot"></span>Home</a>
-          </div>
-        </div>
+        <p><b>4) Contact</b></p>
+        <p>
+          If you have any questions about privacy, contact the developer:
+          <br><span style="font-family:var(--mono)">markevichandrej148@gmail.com</span>
+        </p>
+      </div>
+
+      <div class="actions">
+        <button class="btn" id="closeWebViewBtn" type="button">
+          <span class="dot"></span>
+          Close this page in the app
+        </button>
+        <a class="btn" href="support.html"><span class="dot"></span>Support</a>
+        <a class="btn" href="index.html"><span class="dot"></span>Home</a>
       </div>
     </div>
   </section>
@@ -237,23 +202,41 @@
       showToast._t = setTimeout(()=>toast.classList.remove('show'), 2200);
     }
 
-    const btn = document.getElementById('copyBtn');
-    btn.addEventListener('click', async ()=>{
-      const email = document.getElementById('emailText').textContent.trim();
+    function closeInApp(){
+      let invoked = false;
+
       try{
-        await navigator.clipboard.writeText(email);
-        showToast("Email copied.");
-      }catch(e){
-        // fallback
-        const ta = document.createElement('textarea');
-        ta.value = email;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        ta.remove();
-        showToast("Email copied.");
-      }
-    });
+        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.closeWebView) {
+          window.webkit.messageHandlers.closeWebView.postMessage({ action: "closeWebView" });
+          invoked = true;
+        }
+      }catch(e){}
+
+      try{
+        if (!invoked && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.dismiss) {
+          window.webkit.messageHandlers.dismiss.postMessage({ action: "dismiss" });
+          invoked = true;
+        }
+      }catch(e){}
+
+      try{
+        if (!invoked && window.Android && typeof window.Android.closeWebView === 'function') {
+          window.Android.closeWebView();
+          invoked = true;
+        }
+      }catch(e){}
+
+      try{
+        if (!invoked) {
+          window.location.href = "magicjestermatch://closeWebView";
+          invoked = true;
+        }
+      }catch(e){}
+
+      showToast(invoked ? "Request sent." : "Unable to send request.");
+    }
+
+    document.getElementById('closeWebViewBtn').addEventListener('click', closeInApp);
   })();
 </script>
 </body>
