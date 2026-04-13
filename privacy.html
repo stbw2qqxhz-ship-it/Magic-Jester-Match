@@ -13,8 +13,7 @@
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.68);
       --a1:#7C4DFF; --a2:#00E5FF; --a3:#FF4D8D;
-      --radius:18px; --radius2:26px;
-      --max: 900px;
+      --r2:26px; --max: 900px;
       --shadow: 0 18px 60px rgba(0,0,0,.55);
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -22,10 +21,11 @@
     *{box-sizing:border-box}
     body{
       margin:0; color:var(--text); font-family:var(--sans);
-      background: radial-gradient(900px 600px at 20% 10%, rgba(124,77,255,.22), transparent 55%),
-                  radial-gradient(900px 600px at 80% 20%, rgba(0,229,255,.16), transparent 55%),
-                  radial-gradient(900px 700px at 55% 95%, rgba(255,77,141,.12), transparent 60%),
-                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      background:
+        radial-gradient(900px 600px at 20% 10%, rgba(124,77,255,.22), transparent 55%),
+        radial-gradient(900px 600px at 80% 20%, rgba(0,229,255,.16), transparent 55%),
+        radial-gradient(900px 700px at 55% 95%, rgba(255,77,141,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
     header{
@@ -40,15 +40,11 @@
       padding: 14px 18px;
       display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      text-decoration:none; color:inherit;
-    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;}
     .logo{
       width:40px; height:40px; border-radius:14px;
       background: conic-gradient(from 220deg, var(--a1), var(--a2), var(--a3), var(--a1));
-      position:relative;
-      box-shadow: 0 12px 38px rgba(124,77,255,.22);
+      position:relative; box-shadow: 0 12px 38px rgba(124,77,255,.22);
     }
     .logo:after{content:""; position:absolute; inset:2px; border-radius:12px;
       background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.38), transparent 52%), rgba(0,0,0,.22);
@@ -66,14 +62,7 @@
     }
     .navlink:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18)}
     main{max-width:var(--max); margin:0 auto; padding: 18px 18px 60px}
-    .card{
-      background: var(--card);
-      border:1px solid var(--stroke);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
+    .card{background: var(--card); border:1px solid var(--stroke); border-radius: var(--r2); box-shadow: var(--shadow); overflow:hidden}
     .pad{padding:18px}
     .h1{margin:0 0 10px; font-size:28px; letter-spacing:-.4px}
     .sub{margin:0; color:var(--muted); font-size:14px; line-height:1.5}
@@ -81,6 +70,7 @@
     .policy p{margin:0 0 12px; line-height:1.55; font-size:14px; color: rgba(255,255,255,.86)}
     .policy ul{margin:0 0 12px 18px; color: rgba(255,255,255,.86)}
     .policy li{margin:6px 0; line-height:1.5; font-size:14px}
+
     .pillRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
     .pill{
       font-family: var(--mono);
@@ -91,10 +81,7 @@
       background: rgba(0,0,0,.18);
       color: rgba(255,255,255,.78);
     }
-    .actions{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top: 14px;
-    }
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px}
     .btn{
       border:1px solid rgba(255,255,255,.16);
       background: rgba(255,255,255,.06);
@@ -114,12 +101,6 @@
       width:10px; height:10px; border-radius:999px;
       background: linear-gradient(180deg, var(--a2), var(--a1));
       box-shadow: 0 10px 20px rgba(0,229,255,.20);
-    }
-    .note{
-      margin-top:10px;
-      font-size:12px;
-      color: rgba(255,255,255,.60);
-      line-height:1.45;
     }
     .toast{
       position:fixed; left:50%; bottom:18px;
@@ -160,47 +141,41 @@
     <div class="pad">
       <h1 class="h1">Privacy Policy</h1>
       <p class="sub">
-        This policy explains how <b>Magic Jester Match</b> handles data. We aim for clarity and transparency for users and App Review.
+        We keep privacy simple and strict: <b>Magic Jester Match</b> does not collect, store, or share personal data.
       </p>
 
-      <div class="pillRow" aria-label="Key facts">
-        <div class="pill">No data collection</div>
+      <div class="pillRow">
+        <div class="pill">No collection</div>
         <div class="pill">No storage</div>
         <div class="pill">No sharing</div>
-        <div class="pill">No analytics SDKs</div>
+        <div class="pill">No ads / trackers</div>
       </div>
 
       <div class="hr"></div>
 
       <div class="policy">
-        <p><b>Summary:</b> We do not collect any personal data, we do not store it, and we do not transfer it to third parties.</p>
-
-        <p><b>What data we collect</b></p>
+        <p><b>1) Data collection</b></p>
         <ul>
-          <li>We do not collect personal information (name, email, identifiers, etc.).</li>
-          <li>We do not collect device identifiers (IDFA, IDFV), location, contacts, photos, or microphone data.</li>
-          <li>We do not use third-party analytics or advertising SDKs.</li>
+          <li>We do not collect personal information (name, email, identifiers, location, contacts, photos, microphone).</li>
+          <li>We do not use advertising SDKs or third-party analytics SDKs.</li>
         </ul>
 
-        <p><b>What data we store</b></p>
+        <p><b>2) Data storage</b></p>
         <ul>
-          <li>We do not store personal data on our servers because we do not run any user data backend.</li>
-          <li>Any game progress, if present, remains on the user’s device only.</li>
+          <li>We do not operate a user data backend and do not store personal data on servers.</li>
+          <li>If the app stores anything locally (for example, game progress), it stays on the user’s device.</li>
         </ul>
 
-        <p><b>Sharing</b></p>
+        <p><b>3) Data sharing</b></p>
         <ul>
-          <li>We do not share or sell user data.</li>
-          <li>We do not transfer data to external partners.</li>
+          <li>We do not sell or share user data with third parties.</li>
         </ul>
 
-        <p><b>Contact</b></p>
+        <p><b>4) Contact</b></p>
         <p>
-          If you have questions about privacy, you can contact the developer:
+          If you have any questions about privacy, contact the developer:
           <br><span style="font-family:var(--mono)">markevichandrej148@gmail.com</span>
         </p>
-
-        <p><b>Effective date</b>: <span id="effective"></span></p>
       </div>
 
       <div class="actions">
@@ -208,13 +183,8 @@
           <span class="dot"></span>
           Close this page in the app
         </button>
-        <a class="btn" href="support.html"><span class="dot"></span>Go to Support</a>
-        <a class="btn" href="index.html"><span class="dot"></span>Back to Home</a>
-      </div>
-
-      <div class="note">
-        If this page is opened inside the app WebView, the button will try multiple native bridges (iOS/Android) to close it.
-        If opened in a normal browser, it will simply show a notice.
+        <a class="btn" href="support.html"><span class="dot"></span>Support</a>
+        <a class="btn" href="index.html"><span class="dot"></span>Home</a>
       </div>
     </div>
   </section>
@@ -224,22 +194,17 @@
 
 <script>
   (function(){
-    const effective = new Date().toLocaleDateString(undefined, {year:'numeric', month:'long', day:'2-digit'});
-    document.getElementById('effective').textContent = effective;
-
     const toast = document.getElementById('toast');
     function showToast(msg){
       toast.textContent = msg;
       toast.classList.add('show');
       clearTimeout(showToast._t);
-      showToast._t = setTimeout(()=>toast.classList.remove('show'), 2600);
+      showToast._t = setTimeout(()=>toast.classList.remove('show'), 2200);
     }
 
-    // Attempts to close WebView via several common bridges.
     function closeInApp(){
       let invoked = false;
 
-      // iOS WKWebView message handler
       try{
         if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.closeWebView) {
           window.webkit.messageHandlers.closeWebView.postMessage({ action: "closeWebView" });
@@ -247,7 +212,6 @@
         }
       }catch(e){}
 
-      // Alternative iOS handler name
       try{
         if (!invoked && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.dismiss) {
           window.webkit.messageHandlers.dismiss.postMessage({ action: "dismiss" });
@@ -255,7 +219,6 @@
         }
       }catch(e){}
 
-      // Android JavaScript interface (example names)
       try{
         if (!invoked && window.Android && typeof window.Android.closeWebView === 'function') {
           window.Android.closeWebView();
@@ -264,25 +227,13 @@
       }catch(e){}
 
       try{
-        if (!invoked && window.App && typeof window.App.closeWebView === 'function') {
-          window.App.closeWebView();
-          invoked = true;
-        }
-      }catch(e){}
-
-      // Deep-link fallback (you can handle this scheme in the app if you want)
-      try{
         if (!invoked) {
           window.location.href = "magicjestermatch://closeWebView";
           invoked = true;
         }
       }catch(e){}
 
-      if (invoked) {
-        showToast("Close request sent to the app.");
-      } else {
-        showToast("This looks like a browser. The app close action is unavailable here.");
-      }
+      showToast(invoked ? "Request sent." : "Unable to send request.");
     }
 
     document.getElementById('closeWebViewBtn').addEventListener('click', closeInApp);
